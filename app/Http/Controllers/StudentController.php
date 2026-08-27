@@ -45,9 +45,18 @@ class StudentController extends Controller
             'profile_picture' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        return redirect()
-            ->route('students.create')
-            ->with('validation_success', 'Validation passed successfully.');
+        // Upload profile picture to storage/app/public/student-profiles
+        $profilePicturePath = $request
+            ->file('profile_picture')
+            ->store('student-profiles', 'public');
+
+        // Replace uploaded file object with the saved file path
+        $validated['profile_picture'] = $profilePicturePath;
+
+        // Save student information to MySQL
+        Student::create($validated);
+
+        return redirect()->route('students.create');
     }
 
     public function show(Student $student)
