@@ -54,11 +54,11 @@ class StudentController extends Controller
         $validated['profile_picture'] = $profilePicturePath;
 
         // Save student information to MySQL
-        Student::create($validated);
+        $student = Student::create($validated);
 
         return redirect()
-        ->route('students.create')
-        ->with('success', 'Student registered successfully!');
+            ->route('students.show', $student)
+            ->with('success', 'Student registered successfully!');
     }
 
     public function show(Student $student)
