@@ -363,6 +363,12 @@ The browser output shows the working Student Records page with registered studen
 
 ![Browser Output](screenshots/10-browser-output.png)
 
+### 9.11 GitHub Repository
+
+The completed Student Registration System is stored in a public GitHub repository together with its source code, documentation, diagrams, screenshots, and Git commit history.
+
+![GitHub Repository](screenshots/11-github-repository.png)
+
 ---
 
 ## 10. Problems Encountered
