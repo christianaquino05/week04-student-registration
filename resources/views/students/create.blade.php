@@ -179,6 +179,37 @@
 
 
                 <!-- Validation Error Summary -->
+                @if (session('success'))
+    <div class="mx-6 mt-6 rounded-2xl border border-green-200 bg-green-50 p-5 sm:mx-8">
+        <div class="flex items-start gap-3">
+
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="h-5 w-5"
+                >
+                    <path d="M20 6 9 17l-5-5"/>
+                </svg>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-green-800">
+                    Registration Successful
+                </p>
+
+                <p class="mt-1 text-sm text-green-700">
+                    {{ session('success') }}
+                </p>
+            </div>
+
+        </div>
+    </div>
+@endif
+
                 @if ($errors->any())
                     <div class="mx-6 mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 sm:mx-8">
 

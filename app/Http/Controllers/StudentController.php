@@ -56,7 +56,9 @@ class StudentController extends Controller
         // Save student information to MySQL
         Student::create($validated);
 
-        return redirect()->route('students.create');
+        return redirect()
+        ->route('students.create')
+        ->with('success', 'Student registered successfully!');
     }
 
     public function show(Student $student)
