@@ -179,6 +179,28 @@
 
 
                 <!-- Validation Error Summary -->
+                 @if (session('validation_success'))
+                    <div class="mx-6 mt-6 rounded-2xl border border-green-200 bg-green-50 p-5 sm:mx-8">
+                        <div class="flex items-center gap-3">
+
+                            <div class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-600">
+                                ✓
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-semibold text-green-800">
+                                    Validation Successful
+                                </p>
+
+                                <p class="mt-1 text-sm text-green-700">
+                                    {{ session('validation_success') }}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                @endif
+                
                 @if ($errors->any())
                     <div class="mx-6 mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 sm:mx-8">
 

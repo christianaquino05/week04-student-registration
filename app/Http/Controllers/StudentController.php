@@ -21,7 +21,33 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'student_id' => 'required|string|max:50|unique:students,student_id',
+
+            'first_name' => 'required|string|max:100',
+            'middle_name' => 'nullable|string|max:100',
+            'last_name' => 'required|string|max:100',
+
+            'email' => 'required|email|max:255|unique:students,email',
+
+            'mobile_number' => 'required|numeric',
+
+            'date_of_birth' => 'required|date',
+
+            'gender' => 'required|string',
+
+            'program' => 'required|string',
+
+            'year_level' => 'required|string',
+
+            'address' => 'required|string|max:500',
+
+            'profile_picture' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        return redirect()
+            ->route('students.create')
+            ->with('validation_success', 'Validation passed successfully.');
     }
 
     public function show(Student $student)
